@@ -17,7 +17,7 @@ class UserCRUD extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('updated_at', 'desc')->paginate(10);
+        $users = User::orderBy('updated_at', 'desc')->paginate(20);
         return view('userCRUD.index', compact('users'));
     }
 

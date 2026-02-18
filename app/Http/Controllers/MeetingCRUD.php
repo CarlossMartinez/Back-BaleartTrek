@@ -9,7 +9,7 @@ class MeetingCRUD extends Controller
 {
     public function index()
     {
-        $meetings = Meeting::orderBy('updated_at', 'desc')->paginate(10);
+        $meetings = Meeting::orderBy('updated_at', 'desc')->paginate(20);
         return view('meetingCRUD.index', compact('meetings'));
     }
 
