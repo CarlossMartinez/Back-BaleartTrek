@@ -39,6 +39,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        // esto es solo para ver si la peticion es del back o del front
+        if ($request->expectsJson()) {
+            $token = $user->createToken('auth_token')->plainTextToken;
+            return response()->json(['token' => $token, 'user' => $user], 201);
+        }
         return redirect()->route('dashboard');
     }
 

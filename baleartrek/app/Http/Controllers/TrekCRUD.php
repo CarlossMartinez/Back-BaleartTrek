@@ -17,7 +17,9 @@ class TrekCRUD extends Controller
      */
     public function index()
     {
-        $trek = Trek::orderBy('updated_at', 'desc')->paginate(20);
+        $trek = Trek::orderBy('updated_at', 'desc')
+            ->orderBy('id', 'asc')
+            ->paginate(20);
         return view('trekCRUD.index', compact('trek'));
     }
 

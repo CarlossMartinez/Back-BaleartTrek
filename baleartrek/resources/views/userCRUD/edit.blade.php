@@ -13,12 +13,12 @@
                     <form action="{{ route('userCRUD.update', $user->id) }}" method="post">
                         @csrf @method('PUT') 
                         <div class="mb-3">
-                            <label for="name">Name: </label>
+                            <label for="name">Nom: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('name') border-color:RED; @enderror" name="name" value="{{ $user->name }}" />
                             @error('name') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="lastname">Last Name: </label>
+                            <label for="lastname">Llinatge: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('lastname') border-color:RED; @enderror" name="lastname" value="{{ $user->lastname }}"/>
                             @error('lastname') <div>{{ $message }}</div> @enderror
                         </div>
@@ -33,28 +33,35 @@
                             @error('dni') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="phone">Phone: </label>
+                            <label for="phone">Telèfon: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('phone') border-color:RED; @enderror" name="phone" value="{{ $user->phone }}"/>
                             @error('phone') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="password">password: </label>
+                            <label for="password">Contrasenya: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('password') border-color:RED; @enderror" name="password" value="{{ $user->password }}"/>
                             @error('password') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="role_id">Role ID: </label>
-                            <input type="text" class="mt-1 block w-full" style="@error('role_id') border-color:RED; @enderror" name="role_id" value="{{ $user->role_id }}"/>
-                            @error('role_id') <div>{{ $message }}</div> @enderror
+                            <label for="role_id">Rol: </label>
+                            <select name="place_type_id" class="mt-1 block w-full">
+                                <option value="">-- Selecciona un rol --</option>
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}" @selected(old('role_id', $user->role_id) == $role->id)>
+                                        {{ $role->name }}
+                                    </option>
+                                @endforeach                            
+                                @error('role_id') <div>{{ $message }}</div> @enderror
+                            </select> 
                         </div>
                         <div class="mb-3">
                             <label for="status">Status (y, n): </label>
                             <select name="status" class="mt-1 block w-full">
-                                <option value="{{'y'}}" @selected(old('status'))>
-                                    {{ 'Activo' }}
+                                <option value="{{'y'}}" @selected(old('status', $user->status) == 'y')>
+                                    {{ 'Actiu' }}
                                 </option>
-                                <option value="{{'n'}}" @selected(old('status'))>
-                                    {{ 'Inactivo' }}
+                                <option value="{{'n'}}" @selected(old('status', $user->status) == 'n')>
+                                    {{ 'Inactiu' }}
                                 </option>
                             </select>
                             @error('status') <div>{{ $message }}</div> @enderror

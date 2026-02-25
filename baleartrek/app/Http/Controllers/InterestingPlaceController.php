@@ -10,7 +10,9 @@ class InterestingPlaceController extends Controller
 {
     public function index()
     {
-        $interesting_places = InterestingPlace::orderBy('updated_at', 'desc')->paginate(20);
+        $interesting_places = InterestingPlace::orderBy('updated_at', 'desc')
+            ->orderBy('id', 'asc')
+            ->paginate(20);
         return view('interesting_place.index', compact('interesting_places'));
     }
 

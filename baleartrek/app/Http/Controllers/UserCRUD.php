@@ -17,7 +17,9 @@ class UserCRUD extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('updated_at', 'desc')->paginate(20);
+        $users = User::orderBy('updated_at', 'desc') 
+            ->orderBy('id', 'asc')
+            ->paginate(20);
         return view('userCRUD.index', compact('users'));
     }
 
@@ -53,10 +55,11 @@ class UserCRUD extends Controller
             'password' => 'required|string|min:8',
             'role_id' => 'exists:roles,id',
             'status' => 'in:y,n',
+            'email_verified_at' => 'nullable|date',
         ]);
 
         $data['password'] = Hash::make($data['password']);
-
+        $data['email_verified_at'] = now();
         User::create($data);
 
         return redirect()->route('userCRUD.index');
@@ -97,7 +100,7 @@ class UserCRUD extends Controller
             return redirect()->route('userCRUD.index')->with('error', 'User no trobat.');
         }
 
-        return view('userCRUD.edit', compact('user'));
+        return view('userCRUD.edit', compact('user', 'roles'));
     }
 
     /**

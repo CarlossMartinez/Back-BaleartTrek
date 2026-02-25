@@ -19,13 +19,13 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('interesting_place.index')" :active="request()->routeIs('interesting_place.index')">
-                        {{ __('Interesting Places') }}
+                        {{ __('Llocs Interessants') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('interesting_place.create')" :active="request()->routeIs('interesting_place.create')">
-                        {{ __('Interesting Place [NEW]') }}
+                        {{ __('Lloc Interessant [NOU]') }}
                     </x-nav-link>
                 </div>
 
@@ -33,13 +33,13 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('userCRUD.index')" :active="request()->routeIs('userCRUD.index')">
-                        {{ __('Users') }}
+                        {{ __('Usuaris') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('userCRUD.create')" :active="request()->routeIs('userCRUD.create')">
-                        {{ __('User [NEW]') }}
+                        {{ __('Usuari [NOU]') }}
                     </x-nav-link>
                 </div>
 
@@ -47,13 +47,13 @@
 
                  <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('municipalityCRUD.index')" :active="request()->routeIs('municipalityCRUD.index')">
-                        {{ __('Municipalities') }}
+                        {{ __('Municipis') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('municipalityCRUD.create')" :active="request()->routeIs('municipality.create')">
-                        {{ __('Municipality [NEW]') }}
+                        {{ __('Municipi [NOU]') }}
                     </x-nav-link>
                 </div>
                 
@@ -61,13 +61,13 @@
 
                  <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('meetingCRUD.index')" :active="request()->routeIs('meetingCRUD.index')">
-                        {{ __('Meetings') }}
+                        {{ __('Trobades') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('meetingCRUD.create')" :active="request()->routeIs('meetingCRUD.create')">
-                        {{ __('Create Meeting') }}
+                        {{ __('Trobada [NOU]') }}
                     </x-nav-link>
                 </div>
 
@@ -75,13 +75,27 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('trekCRUD.index')" :active="request()->routeIs('trekCRUD.index')">
-                        {{ __('Treks') }}
+                        {{ __('Excursions') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('trekCRUD.create')" :active="request()->routeIs('trekCRUD.create')">
-                        {{ __('Create Trek') }}
+                        {{ __('Excursió [NOU]') }}
+                    </x-nav-link>
+                </div>
+
+                <!-- Comments -->
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('commentCRUD.index')" :active="request()->routeIs('commentCRUD.index')">
+                        {{ __('Commentaris') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('commentCRUD.create')" :active="request()->routeIs('commentCRUD.create')">
+                        {{ __('Comentari [NOU]') }}
                     </x-nav-link>
                 </div>
 

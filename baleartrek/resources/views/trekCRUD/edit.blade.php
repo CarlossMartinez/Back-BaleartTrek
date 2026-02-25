@@ -26,7 +26,7 @@
                             <label for="Municipality ID"> Municipality ID: </label>
                             <select name="municipality_id" class="mt-1 block w-full">   
                                 @foreach($municipalities as $municipality)
-                                    <option value="{{ $municipality->id}}" @selected(old('municipality_id') == $municipality->id)>
+                                    <option value="{{ $municipality->id}}" @selected(old('municipality_id', $trek->municipality_id) == $municipality->id)>
                                         {{ $municipality->name .' (id: '. $municipality->id .')' }}
                                     </option>
                                 @endforeach
@@ -36,10 +36,10 @@
                         <div class="mb-3">
                             <label for="status">Estado: </label>
                             <select name="status" class="mt-1 block w-full">
-                                <option value="{{'y'}}" @selected(old('status'))>
+                                <option value="{{'y'}}" @selected(old('status', $trek->status) == 'y')>
                                     {{ 'Activo' }}
                                 </option>
-                                <option value="{{'n'}}" @selected(old('status'))>
+                                <option value="{{'n'}}" @selected(old('status', $trek->status) == 'n')>
                                     {{ 'Inactivo' }}
                                 </option>
                             </select>

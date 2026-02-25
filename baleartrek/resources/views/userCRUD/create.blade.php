@@ -14,12 +14,12 @@
                     <form action="{{ route('userCRUD.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="name">Name: </label>
+                            <label for="name">Nom: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('name') border-color:RED; @enderror" name="name" />
                             @error('name') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="lastname">Last Name: </label>
+                            <label for="lastname">Llinatge: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('lastname') border-color:RED; @enderror" name="lastname" />
                             @error('lastname') <div>{{ $message }}</div> @enderror
                         </div>
@@ -34,18 +34,18 @@
                             @error('dni') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="phone">Phone: </label>
+                            <label for="phone">Telèfon: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('phone') border-color:RED; @enderror" name="phone" />
                             @error('phone') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="password">password: </label>
+                            <label for="password">Contrasenya: </label>
                             <input type="text" class="mt-1 block w-full" style="@error('password') border-color:RED; @enderror" name="password" />
                             @error('password') <div>{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="role_id">Role: </label>
-                            <select name="place_type_id" class="mt-1 block w-full">
+                            <label for="role_id">Rol: </label>
+                            <select name="role_id" class="mt-1 block w-full">
                                 <option value="">-- Selecciona un rol --</option>
                                 @foreach($roles as $role)
                                     <option value="{{ $role->id }}" @selected(old('role_id') == $role->id)>
@@ -59,10 +59,10 @@
                             <label for="status">Status (y/n): </label>
                             <select name="status" class="mt-1 block w-full">
                                 <option value="{{'y'}}" @selected(old('status'))>
-                                    {{ 'Activo' }}
+                                    {{ 'Actiu' }}
                                 </option>
                                 <option value="{{'n'}}" @selected(old('status'))>
-                                    {{ 'Inactivo' }}
+                                    {{ 'Inactiu' }}
                                 </option>
                             </select>
                         </div>

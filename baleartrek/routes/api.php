@@ -9,12 +9,11 @@ use App\Http\Controllers\Api\TrekController;
 use App\Http\Controllers\Api\MeetingController;  
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Api\AuthController as ApiAuthController; //añadimos este controlador para la gestion de users en el front 
+use App\Http\Controllers\Api\AuthController;
 
 // login Frontend
-Route::post('/register', [ApiAuthController::class, 'register']);
-Route::post('/login',    [ApiAuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 // Treks públicos (el frontend los necesita sin login)
 Route::get('/treks', [TrekController::class, 'index']);

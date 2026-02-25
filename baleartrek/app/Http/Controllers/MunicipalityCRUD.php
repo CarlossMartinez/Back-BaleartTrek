@@ -12,7 +12,9 @@ class MunicipalityCRUD extends Controller
 {
     public function index()
     {
-        $municipalities = Municipality::orderBy('updated_at', 'desc')->paginate(20);
+        $municipalities = Municipality::orderBy('updated_at', 'desc')
+            ->orderBy('id', 'asc')
+            ->paginate(20);
         return view('municipalityCRUD.index', compact('municipalities'));
     }
 
